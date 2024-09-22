@@ -8,12 +8,15 @@ class BaseTimer:
         self.start_time = None
         self.end_time = None
 
+    # start timer
     def start(self):
         self.start_time = time.time()
 
+    # stop timer
     def stop(self):
         self.end_time = time.time()
 
+    # get passed time
     def get_elapsed_time(self):
         if self.start_time is None:
             return 0
@@ -21,5 +24,6 @@ class BaseTimer:
             return time.time() - self.start_time
         return self.end_time - self.start_time
 
+    # check if timer is complete
     def is_complete(self):
         return self.get_elapsed_time() >= self.duration

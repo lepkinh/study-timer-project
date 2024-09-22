@@ -1,0 +1,1 @@
+# handles data persistence, stores session info in a JSON file

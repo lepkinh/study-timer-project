@@ -49,7 +49,6 @@ class BaseTimer:
     def is_complete(self):
         return self.get_elapsed_time() >= self.duration
 
-    # timer type ion een know if this will be useful but wrote it because its customary or watever the term is
-    # NOTE: delete if not needed
+    # return timer name, not needed for base timer actually but its here for organization might remove
     def get_timer_type(self):
         return "Base"

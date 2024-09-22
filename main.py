@@ -1,6 +1,5 @@
 # main python file (executable)
 
-import time
 from session.session_manager import SessionManager
 
 def main():
@@ -8,7 +7,7 @@ def main():
 
     # cheeky little menu in a while loop to prevent invalid inputs from crashing the program
     while True:
-        print("\n--- Pomodoro Timer ---")
+        print("\n--- Study Timer ---")
         print("1. Start a study session")
         print("2. Set custom durations")
         print("3. View stats")
@@ -28,12 +27,14 @@ def main():
             session_manager.view_stats()
 
         elif choice == "4":
-            print("FUCK OFFFF!!!!!")
+            print("Thank you for trying this program.")
             break
         
         # easter egg
         elif choice == "9":
-            computer.explode()
+            # computer.explode()
+            print("BOOM! 💥")
+            break
         
         # invalid input catching
         else:

@@ -4,7 +4,7 @@ import json
 import os
 
 class DataManager:
-    def __init__(self, filename="pomodoro_data.json"):
+    def __init__(self, filename="study_data.json"):
         self.filename = filename
         self.data = self._load_data()
 
@@ -21,10 +21,11 @@ class DataManager:
             json.dump(self.data, f)
 
     # add session to data
-    def add_session(self, study_time, break_time):
+    def add_session(self, study_time, break_time, focus_score):
         self.data["sessions"].append({
             "study_time": study_time,
-            "break_time": break_time
+            "break_time": break_time,
+            "focus_score": focus_score
         })
         self._save_data()
 
@@ -32,4 +33,9 @@ class DataManager:
     def get_totals(self):
         total_study = sum(session["study_time"] for session in self.data["sessions"])
         total_break = sum(session["break_time"] for session in self.data["sessions"])
-        return total_study, total_break
+        avg_focus = sum(session["focus_score"] for session in self.data["sessions"]) / len(self.data["sessions"]) if self.data["sessions"] else 0
+        return total_study, total_break, avg_focus
+
+    # getting the recent sessions
+    def get_recent_sessions(self, n):
+        return self.data["sessions"][-n:]
